@@ -1,0 +1,33 @@
+---
+title: "Plotly"
+author: "Kiril Spiridonov"
+date: "7/14/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Figure settings
+
+```{r}
+library(plotly)
+library(ggplot2)
+data("mtcars")
+mtcars$am[which(mtcars$am == 0)] <- 'Automatic'
+mtcars$am[which(mtcars$am == 1)] <- 'Manual'
+mtcars$cyl <- as.factor(mtcars$cyl)
+
+fig <- plot_ly(mtcars, type = "scatter3d", mode = "markers", x = ~wt, y = ~hp, z = ~qsec, color = ~cyl)
+
+```
+
+## Figure
+
+```{r}
+fig
+```
+
+## Thank you
+
